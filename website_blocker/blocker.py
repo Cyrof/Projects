@@ -10,7 +10,7 @@ website_list = ["www.facebook.com", "facebook.com"]
 while True:
     if dt(dt.now().year,dt.now().month,dt.now().day,17) < dt.now() < dt(dt.now().year, dt.now().month, dt.now().day,18):
         print("Not allowed")
-        with open(hosts_path, 'r+') as f:
+        with open(hosts_temp, 'r+') as f:
             content = f.read()
             for website in website_list:
                 if website in content:
@@ -18,7 +18,7 @@ while True:
                 else:
                     f.write(redirect+" "+website+"\n")
     else:
-        with open(hosts_path, 'r+') as f:
+        with open(hosts_temp, 'r+') as f:
             content = f.readlines()
             f.seek(0)
             for line in content:
